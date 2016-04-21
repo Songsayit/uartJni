@@ -12,11 +12,11 @@ public class UartJni {
 	/**
 	* 
 	* @param fd---openUartChannel的返回值
-	* @param speed---必须为(115200, 38400, 19200,  9600,  4800,  2400,  1200,  300)中的一个
+	* @param baudrate-- 比如(115200, 38400, 19200,  9600,  4800,  2400,  1200,  300)
 	* @return true--ok,false--fail
 	* 参考:uartSetSpeed(fd,9600); 
 	*/
-	public native boolean uartSetSpeed(int fd,int speed);
+	public static native boolean uartSetSpeed(int fd,int baudrate);
 
 	/**
 	* 
@@ -32,7 +32,7 @@ public class UartJni {
 	* 
 	* 参考:uartSetParity(fd, 8, 1, 'N')
 	*/
-	public native boolean uartSetParity(int fd,int databits,int stopbits,int parity);
+	public static native boolean uartSetParity(int fd,int databits,int stopbits,int parity);
 		
 	
 	
@@ -49,16 +49,16 @@ public class UartJni {
 	 * @param name (如/dev/ttyS0,/dev/ttyS1)
 	 * @return fd---文件句柄
 	 * 
-	 * 参考:fd = openUartChannel("/dev/ttyS0")
+	 * 参考:fd = openUartChannel("/dev/ttyS1")
 	 */
-	public native int openUartChannel(String name);
+	public static native int openUartChannel(String name);
 	
 	
 	/**
 	 * 
 	 * @param fd---openUartChannel的返回值
 	 */
-	public native void closeUartChannel(int fd);
+	public static native void closeUartChannel(int fd);
 
 	/**
 	 * 
@@ -67,7 +67,7 @@ public class UartJni {
 	 * @param len--Data Length
 	 * @return real write bytes
 	 */
-	public native int uartWriteBytes(int fd,byte[] buf,int len);
+	public static native int uartWriteBytes(int fd,byte[] buf,int len);
 	
 	/**
 	 * 
@@ -76,7 +76,7 @@ public class UartJni {
 	 * @param len--Need Data Length
 	 * @return real read bytes
 	 */
-	public native int uartReadBytes(int fd,byte[] buf,int len);
+	public static native int uartReadBytes(int fd,byte[] buf,int len);
 
 	static
 	{

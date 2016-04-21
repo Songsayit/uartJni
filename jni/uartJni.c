@@ -99,8 +99,8 @@ JNIEXPORT jboolean JNICALL Java_com_htfyun_uartJni_UartJni_uartSetSpeed
 	
 	tcflush(fd, TCIOFLUSH);     
 			
-	cfsetispeed(&Opt, B9600);  
-	cfsetospeed(&Opt, B9600);   
+	cfsetispeed(&Opt, speed);  
+	cfsetospeed(&Opt, speed);   
 			
 	status = tcsetattr(fd, TCSANOW, &Opt);
 	
