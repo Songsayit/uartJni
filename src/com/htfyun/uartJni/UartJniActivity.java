@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//20160422
 public class UartJniActivity extends Activity {
     /** Called when the activity is first created. */
 	private final String TAG = "uartJniTest";
